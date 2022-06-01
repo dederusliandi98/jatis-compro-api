@@ -23,3 +23,12 @@ Route::group(['prefix' => 'v1/cms', 'namespace' => 'App\Http\Controllers'], func
     Route::resource('teams', 'TeamController')->except(['create']);
     Route::resource('testimonials', 'TestimonialController')->except(['create']);
 });    
+
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\LandingPage'], function () {
+    Route::resource('clients', 'ClientController')->only(['index']);
+    Route::resource('contacts', 'ContactController')->only(['store']);
+    Route::resource('portfolios', 'PortfolioController')->only(['index']);
+    Route::resource('products', 'ProductController')->only(['index']);
+    Route::resource('teams', 'TeamController')->only(['index']);
+    Route::resource('testimonials', 'TestimonialController')->only(['index']);
+});    
