@@ -21,4 +21,9 @@ class Team extends Model
         'position',
         'image',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
