@@ -20,4 +20,9 @@ class Client extends Model
         'title',
         'image',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

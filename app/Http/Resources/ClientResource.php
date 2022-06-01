@@ -17,7 +17,7 @@ class ClientResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->code,
+            'title' => $this->title,
             'image' => asset('storage/upload_files/client/'.$this->image),
             'user' => new UserResource($this->whenLoaded('user')),
         ];

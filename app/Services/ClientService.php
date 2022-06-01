@@ -51,7 +51,7 @@ class ClientService implements ClientInterface
         $permissions = DB::transaction(function () use ($request) {
             $input = $request->all();
             $input['id'] = Uuid::uuid4()->getHex();
-            $input['user_id'] = Auth::user()->id;
+            $input['user_id'] = 1;
 
             if($request->hasFile('image')) {
                 $file = $request->file('image')->getClientOriginalName();
@@ -78,7 +78,7 @@ class ClientService implements ClientInterface
         $permissions = DB::transaction(function () use ($request, $id) {
             $data = $this->find($id);
             $input = $request->except('_token','_method');
-            $input['user_id'] = Auth::user()->id;
+            $input['user_id'] = 1;
 
             if($request->hasFile('image')) {
                 #remove image
