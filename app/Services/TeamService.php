@@ -104,4 +104,9 @@ class TeamService implements TeamInterface
     {
         return $this->teamRepo->delete($id);
     }
+
+    public function getAllWithParams($params)
+    {
+        return $this->teamRepo->getAllWithParams($params);
+    }
 }

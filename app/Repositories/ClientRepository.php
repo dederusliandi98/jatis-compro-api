@@ -30,7 +30,7 @@ class ClientRepository extends BaseRepository implements ClientInterface
     {
         $client = $this->model->with(['user']);
         if(isset($params->search) && $params->search != null) $client = $client->where('title', 'like', '%' . $params->search . '%');
-        $client = $client->orderBy('created_at', 'DESC');
+        $client = $client->orderBy('created_at', 'DESC')->get();
         return $client;
     }
 

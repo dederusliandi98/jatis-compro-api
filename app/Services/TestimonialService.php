@@ -82,4 +82,9 @@ class TestimonialService implements TestimonialInterface
     {
         return $this->testimonialRepo->delete($id);
     }
+
+    public function getAllWithParams($params)
+    {
+        return $this->testimonialRepo->getAllWithParams($params);
+    }
 }

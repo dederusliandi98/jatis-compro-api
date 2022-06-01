@@ -30,7 +30,7 @@ class TeamRepository extends BaseRepository implements TeamInterface
     {
         $team = $this->model->with(['user']);
         if(isset($params->search) && $params->search != null) $team = $team->where('name', 'like', '%' . $params->search . '%');
-        $team = $team->orderBy('created_at', 'DESC');
+        $team = $team->orderBy('created_at', 'DESC')->get();
         return $team;
     }
 

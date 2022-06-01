@@ -30,7 +30,7 @@ class PortfolioRepository extends BaseRepository implements PortfolioInterface
     {
         $portfolio = $this->model->with(['user']);
         if(isset($params->search) && $params->search != null) $portfolio = $portfolio->where('title', 'like', '%' . $params->search . '%');
-        $portfolio = $portfolio->orderBy('created_at', 'DESC');
+        $portfolio = $portfolio->orderBy('created_at', 'DESC')->get();
         return $portfolio;
     }
 

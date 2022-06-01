@@ -30,7 +30,7 @@ class TestimonialRepository extends BaseRepository implements TestimonialInterfa
     {
         $testimonial = $this->model->with(['user']);
         if(isset($params->search) && $params->search != null) $testimonial = $testimonial->where('name', 'like', '%' . $params->search . '%');
-        $testimonial = $testimonial->orderBy('created_at', 'DESC');
+        $testimonial = $testimonial->orderBy('created_at', 'DESC')->get();
         return $testimonial;
     }
 

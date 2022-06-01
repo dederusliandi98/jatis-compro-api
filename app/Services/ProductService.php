@@ -104,4 +104,9 @@ class ProductService implements ProductInterface
     {
         return $this->productRepo->delete($id);
     }
+
+    public function getAllWithParams($params)
+    {
+        return $this->productRepo->getAllWithParams($params);
+    }
 }

@@ -104,4 +104,9 @@ class PortfolioService implements PortfolioInterface
     {
         return $this->portfolioRepo->delete($id);
     }
+
+    public function getAllWithParams($params)
+    {
+        return $this->portfolioRepo->getAllWithParams($params);
+    }
 }

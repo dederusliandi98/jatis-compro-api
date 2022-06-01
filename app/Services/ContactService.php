@@ -78,4 +78,9 @@ class ContactService implements ContactInterface
     {
         return $this->contactRepo->delete($id);
     }
+
+    public function getAllWithParams($params)
+    {
+        return $this->contactRepo->getAllWithParams($params);
+    }
 }

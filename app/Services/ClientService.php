@@ -105,4 +105,9 @@ class ClientService implements ClientInterface
     {
         return $this->clientRepo->delete($id);
     }
+
+    public function getAllWithParams($params)
+    {
+        return $this->clientRepo->getAllWithParams($params);
+    }
 }

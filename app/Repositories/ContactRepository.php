@@ -30,7 +30,7 @@ class ContactRepository extends BaseRepository implements ContactInterface
     {
         $contact = $this->model;
         if(isset($params->search) && $params->search != null) $contact = $contact->where('name', 'like', '%' . $params->search . '%');
-        $contact = $contact->orderBy('created_at', 'DESC');
+        $contact = $contact->orderBy('created_at', 'DESC')->get();
         return $contact;
     }
 

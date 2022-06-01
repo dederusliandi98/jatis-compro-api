@@ -30,7 +30,7 @@ class ProductRepository extends BaseRepository implements ProductInterface
     {
         $product = $this->model->with(['user']);
         if(isset($params->search) && $params->search != null) $product = $product->where('title', 'like', '%' . $params->search . '%');
-        $product = $product->orderBy('created_at', 'DESC');
+        $product = $product->orderBy('created_at', 'DESC')->get();
         return $product;
     }
 

@@ -26,7 +26,7 @@ Route::group(['prefix' => 'v1/cms', 'namespace' => 'App\Http\Controllers'], func
 
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\LandingPage'], function () {
     Route::resource('clients', 'ClientController')->only(['index']);
-    Route::resource('contacts', 'ContactController')->only(['store']);
+    Route::resource('contacts', 'ContactController')->only(['index', 'store']);
     Route::resource('portfolios', 'PortfolioController')->only(['index']);
     Route::resource('products', 'ProductController')->only(['index']);
     Route::resource('teams', 'TeamController')->only(['index']);
