@@ -7,15 +7,10 @@ use App\Services\Contracts\TestimonialInterface;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Ramsey\Uuid\Uuid;
-use App\Traits\Uploadable;
 
 class TestimonialService implements TestimonialInterface
 {    
-    use Uploadable;
-
     protected $testimonialRepo;
-
-    protected $image_path = 'upload_files/testimonial';
 
     public function __construct(TestimonialRepo $testimonialRepo)
     {
@@ -51,14 +46,7 @@ class TestimonialService implements TestimonialInterface
         $permissions = DB::transaction(function () use ($request) {
             $input = $request->all();
             $input['id'] = Uuid::uuid4()->getHex();
-            $input['user_id'] = Auth::user()->id;
-
-            if($request->hasFile('image')) {
-                $file = $request->file('image')->getClientOriginalName();
-                $filename = pathinfo($file, PATHINFO_FILENAME);
-                $filename = $this->uploadFile($request->file('image'), $filename, $this->image_path);
-                $input['image'] = $filename;
-            }
+            $input['user_id'] = 1;
 
             return $this->testimonialRepo->create($input);
         });
@@ -77,17 +65,7 @@ class TestimonialService implements TestimonialInterface
     {
         $permissions = DB::transaction(function () use ($request, $id) {
             $input = $request->except('_token','_method');
-            $input['user_id'] = Auth::user()->id;
-
-            if($request->hasFile('image')) {
-                #remove image
-                $this->deleteFile($data->image, $this->image_path);
-                #upload file
-                $file = $request->file('image')->getClientOriginalName();
-                $filename = pathinfo($file, PATHINFO_FILENAME);
-                $filename = $this->uploadFile($request->file('image'), $filename, $this->image_path);
-                $input['image'] = $filename;
-            }
+            $input['user_id'] = 1;
 
             return $this->testimonialRepo->update($input, $id);
         });

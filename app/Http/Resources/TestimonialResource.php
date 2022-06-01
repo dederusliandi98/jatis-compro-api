@@ -18,7 +18,8 @@ class TestimonialResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'email' => $this->email,
+            'description' => $this->description,
+            'user' => new UserResource($this->whenLoaded('user')),
         ];
     }
 }
