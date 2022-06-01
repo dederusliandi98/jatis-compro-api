@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamsTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
         $this->call(PortfoliosTableSeeder::class);
+        $this->call(TestimonialsTableSeeder::class);
         
         \Artisan::call('passport:install');
     }
