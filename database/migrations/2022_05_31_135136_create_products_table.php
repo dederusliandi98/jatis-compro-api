@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('user_id');
             $table->string('title');
             $table->string('image');
-            $table->string('description');
+            $table->text('description');
         });
     }
 

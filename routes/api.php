@@ -19,4 +19,5 @@ Route::group(['prefix' => 'v1/cms', 'namespace' => 'App\Http\Controllers'], func
     Route::resource('clients', 'ClientController')->except(['create']);
     Route::resource('contacts', 'ContactController')->except(['create', 'edit', 'update']);
     Route::resource('portfolios', 'PortfolioController')->except(['create']);
+    Route::resource('products', 'ProductController')->except(['create']);
 });    
