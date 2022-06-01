@@ -46,7 +46,6 @@ class ContactService implements ContactInterface
         $permissions = DB::transaction(function () use ($request) {
             $input = $request->all();
             $input['id'] = Uuid::uuid4()->getHex();
-            $input['user_id'] = Auth::user()->id;
             return $this->contactRepo->create($input);
         });
 
@@ -64,7 +63,6 @@ class ContactService implements ContactInterface
     {
         $permissions = DB::transaction(function () use ($request, $id) {
             $input = $request->except('_token','_method');
-            $input['user_id'] = Auth::user()->id;
             return $this->contactRepo->update($input, $id);
         });
 

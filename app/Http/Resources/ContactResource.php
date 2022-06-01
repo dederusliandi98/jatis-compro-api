@@ -20,7 +20,6 @@ class ContactResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'description' => $this->description,
-            'user' => new UserResource($this->whenLoaded('user')),
         ];
     }
 }
