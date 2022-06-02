@@ -80,4 +80,9 @@ class InformationService implements InformationInterface
     {
         return $this->informationRepo->delete($id);
     }
+
+    public function first()
+    {
+        return $this->informationRepo->first();
+    }
 }

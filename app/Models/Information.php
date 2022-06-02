@@ -21,4 +21,9 @@ class Information extends Model
         'address',
         'about_us',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

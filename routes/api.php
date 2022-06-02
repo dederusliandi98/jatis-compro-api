@@ -31,4 +31,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\LandingPage
     Route::resource('products', 'ProductController')->only(['index']);
     Route::resource('teams', 'TeamController')->only(['index']);
     Route::resource('testimonials', 'TestimonialController')->only(['index']);
+    Route::resource('information', 'InformationController')->only(['index']);
 });    
