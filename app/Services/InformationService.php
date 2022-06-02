@@ -64,7 +64,7 @@ class InformationService implements InformationInterface
     {
         $permissions = DB::transaction(function () use ($request, $id) {
             $input = $request->except('_token','_method');
-            $input['user_id'] = Auth::user()->id;
+            $input['user_id'] = 1;
             return $this->informationRepo->update($input, $id);
         });
 

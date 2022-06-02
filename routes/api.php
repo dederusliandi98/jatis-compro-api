@@ -22,6 +22,7 @@ Route::group(['prefix' => 'v1/cms', 'namespace' => 'App\Http\Controllers'], func
     Route::resource('products', 'ProductController')->except(['create']);
     Route::resource('teams', 'TeamController')->except(['create']);
     Route::resource('testimonials', 'TestimonialController')->except(['create']);
+    Route::resource('information', 'InformationController')->only(['index', 'update']);
 });    
 
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\LandingPage'], function () {
