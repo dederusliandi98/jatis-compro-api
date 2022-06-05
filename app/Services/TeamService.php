@@ -78,7 +78,7 @@ class TeamService implements TeamInterface
         $permissions = DB::transaction(function () use ($request, $id) {
             $input = $request->except('_token','_method');
             $input['user_id'] = 1;
-
+            $data = $this->find($id);
             if($request->hasFile('image')) {
                 #remove image
                 $this->deleteFile($data->image, $this->image_path);

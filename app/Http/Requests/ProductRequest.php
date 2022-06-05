@@ -38,8 +38,8 @@ class ProductRequest extends FormRequest
                 'code' => config('constants.HTTP.CODE.UNPROCESS'),
                 'status_code' => config('constants.STATUS.CODE.FAILED'),
                 'message' => __('messages.api.error.form_input'),
-                'data' => $validator->messages()->all()
-            ], 200)
+                'data' => $validator->messages()
+            ], 422)
         ); 
     }
 }

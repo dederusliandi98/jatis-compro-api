@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'v1/cms', 'namespace' => 'App\Http\Controllers'], function () {
+Route::group(['middleware' => 'cors', 'prefix' => 'v1/cms', 'namespace' => 'App\Http\Controllers'], function () {
     
     Route::resource('clients', 'ClientController')->except(['create']);
     Route::resource('contacts', 'ContactController')->except(['create', 'edit', 'update']);
